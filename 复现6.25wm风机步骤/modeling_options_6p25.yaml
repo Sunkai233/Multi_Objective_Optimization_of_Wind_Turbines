@@ -1,0 +1,72 @@
+General:
+    verbosity: False  # When set to True, the code prints to screen many infos
+
+WISDEM:
+    RotorSE:
+        flag: True
+        spar_cap_ss: Spar_Cap_SS
+        spar_cap_ps: Spar_Cap_PS
+        te_ss: TE_reinforcement_SS
+        te_ps: TE_reinforcement_PS
+    TowerSE:
+        flag: True
+    DriveSE:
+        flag: True
+    FloatingSE:
+        flag: False   # 陆上机组，浮式平台关闭
+    BOS:
+        flag: True
+
+OpenFAST: # Options for WEIS fidelity level 3 = nonlinear time domain
+    flag: True
+    simulation:
+        DT: 0.0125
+        CompElast: 1
+        CompInflow: 1
+        CompAero: 2
+        CompServo: 1
+        CompHydro: 0     # 陆上机组，不需要水动力
+        CompSub: 0
+        CompMooring: 0
+        CompIce: 0
+        SttsTime: 1.0
+        OutFileFmt: 3
+    linearization:
+        Linearize: False
+    ElastoDyn:
+        flag: True
+        FlapDOF1: True
+        FlapDOF2: True
+        EdgeDOF: True
+        TeetDOF: False
+        DrTrDOF: False
+        GenDOF: True
+        YawDOF: True       # 陆上机组通常保留偏航
+        TwFADOF1 : True
+        TwFADOF2 : False
+        TwSSDOF1 : True
+        TwSSDOF2 : False
+        PtfmSgDOF: False
+        PtfmSwDOF: False
+        PtfmHvDOF: False
+        PtfmRDOF : False
+        PtfmPDOF : False
+        PtfmYDOF : False
+
+ROSCO:
+    flag: True
+    zeta_pc:    [1.0]
+    omega_pc:   [0.2]
+    zeta_vs: 1.0
+    omega_vs: 0.2
+
+DLC_driver:
+    DLCs:
+        - DLC: "1.1"
+          ws_bin_size: 2
+          wind_speed: [ 15. ]
+          n_seeds: 1
+          analysis_time: 40
+          transient_time: 0.
+
+

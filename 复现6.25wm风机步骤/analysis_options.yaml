@@ -1,0 +1,3 @@
+general:
+    folder_output: outputs/01_nrel5mw_monopile   # 输出目录
+    fname_output: nrel5mw_output                 # 输出文件基名
